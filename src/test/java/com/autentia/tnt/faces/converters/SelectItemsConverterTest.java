@@ -60,7 +60,7 @@ public class SelectItemsConverterTest {
 	public void shoulReturnStringValueWhenGetAsString(){
 		final Point fpoint = new Point(1,2);
 		final Point spoint = new Point(3,4);
-		doReturn(Arrays.asList(new Point[]{fpoint,spoint})).when(converter).getObjectsFromUISelectItemsComponent(uiComponent);
+		// doReturn(Arrays.asList(new Point[]{fpoint,spoint})).when(converter).getObjectsFromUISelectItemsComponent(uiComponent);
 		String value = converter.getAsString(facesContext, uiComponent, spoint);
 		assertEquals("1", value);
 		value = converter.getAsString(facesContext, uiComponent, fpoint);

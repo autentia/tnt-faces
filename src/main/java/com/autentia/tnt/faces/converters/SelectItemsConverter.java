@@ -19,11 +19,12 @@
 
 package com.autentia.tnt.faces.converters;
 
-import java.util.Collections;
-import java.util.List;
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 import javax.faces.component.UIComponent;
-import javax.faces.component.UISelectItems;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
@@ -33,42 +34,54 @@ import org.slf4j.LoggerFactory;
 
 @FacesConverter("selectItemsConverter")
 public class SelectItemsConverter implements Converter {
-
 	private static final Logger LOG = LoggerFactory.getLogger(SelectItemsConverter.class);
+	
+	private static final String KEY_PREFIX = "com.autentia.tnt.faces.converters.SelectItemsConverter";
+	private static final String EMPTY = "";
 
-	@Override
-	public Object getAsObject(FacesContext context, UIComponent component, String value) {
+	@SuppressWarnings("unchecked")
+	private Map<String, Object> getViewMap(FacesContext facesContext, UIComponent component) {
+	    final Map<String, Object> viewMap = getViewMapFromViewRoot(facesContext);
+	    final String key = getUniqueKey(component);
+	    Map<String, Object> idMap = (Map<String,Object>) viewMap.get(key);
+	    if (idMap == null) {
+	        idMap = new HashMap<String, Object>();
+	        viewMap.put(key, idMap);
+	    }
+	    LOG.trace("viewMap {}", idMap);
+	    return idMap;
+	}
+
+	Map<String, Object> getViewMapFromViewRoot(FacesContext facesContext) {
+		return facesContext.getViewRoot().getViewMap();
+	}
+	
+	String getUniqueKey(UIComponent component) {
+		final StringBuilder key = new StringBuilder(KEY_PREFIX);
+		key.append(".").append(component.getClientId());
+		return key.toString();
+	}
+
+	public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
 		LOG.trace("String value: {}", value);
-		final int index = Integer.parseInt(value);
-		if (index == -1) {
+		if (value == null) {
 			return null;
 		}
-
-		return getObjectsFromUISelectItemsComponent(component).get(index);
+		final Object result = getViewMap(facesContext, component).get(value);
+		LOG.trace("Object result: {}", result);
+	    return result;
 	}
 
-	@Override
-	public String getAsString(FacesContext context, UIComponent component, Object value) {
-		String string;
+	public String getAsString(FacesContext facesContext, UIComponent component, Object value) {
 		LOG.trace("Object value: {}", value);
-		if(value == null){
-			string="";
-		}else{
-			final List<?> objects = getObjectsFromUISelectItemsComponent(component);
-			string = String.valueOf(objects.indexOf(value));
-		}
-		return string;
-	}
-
-	List<?> getObjectsFromUISelectItemsComponent(UIComponent component) {
-		List<?> objects = Collections.emptyList();
-		for (UIComponent child : component.getChildren()) {
-			if (UISelectItems.class.isAssignableFrom(child.getClass())) {
-				objects = (List<?>)((UISelectItems)child).getValue();
-			}
-		}
-		LOG.trace("Objects: {}", objects);
-		return objects;
+	    if (value == null) {
+	        return EMPTY;
+	    }
+	    final Serializable id = UUID.randomUUID().toString();
+	    getViewMap(facesContext, component).put(id.toString(), value);
+	    
+	    LOG.trace("String result: {}", id);
+	    return id.toString();
 	}
 
 }
