@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright 2008 Autentia Real Business Solutions S.L.
+    
+    This file is part of Autentia WUIJA.
+    
+    Autentia WUIJA is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Lesser General Public License as published by
+    the Free Software Foundation, version 3 of the License.
+    
+    Autentia WUIJA is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public License
+    along with Autentia WUIJA. If not, see <http://www.gnu.org/licenses/>.
+
+-->
+
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" 
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:tnt="http://java.sun.com/jsf/composite/components">
+
+	<ui:component>
+		<h:panelGroup id="advancedQuery">
+			<h:panelGrid columns="2" id="matchModeGroup" styleClass="advancedQueryWidgetMatchMode">
+				<h:panelGroup styleClass="advancedQueryWidgetMatchModeLabel">
+					<h:outputLabel for="matchMode" value="#{msg['advancedQuery.MATCH']}" />
+				</h:panelGroup>
+				<h:selectOneRadio id="matchMode" value="#{widget.selectedMatchMode}">
+					<f:selectItems value="#{widget.matchModes}" var="matchMode" itemLabel="${msg['advancedQuery.'.concat(matchMode)]}" itemValue="${matchMode}" />
+				</h:selectOneRadio>
+			</h:panelGrid>
+	
+			<h:panelGroup id="criteriaGroup" styleClass="advancedQueryWidgetCriteria">
+				<c:forEach var="simpleExpressionWidget" items="#{widget.simpleExpressionWidgets}" varStatus="varStatus">
+					<tnt:renderer id="expressions#{varStatus.index}" widget="#{simpleExpressionWidget}">
+						<ui:param name="criterionIdSuffix" value="#{varStatus.index}" />
+					</tnt:renderer>
+				</c:forEach>
+			</h:panelGroup>
+	
+			<h:panelGroup id="advancedQueryButtons" styleClass="widgetButtons">
+				<p:commandButton id="moreCriterion" value="#{msg['advancedQuery.moreCriterion']}"
+					action="#{widget.addSimpleExpressionWidget}" 
+					update="criteriaGroup advancedQueryButtons" />
+					
+				<p:commandButton id="lessCriterion" value="#{msg['advancedQuery.lessCriterion']}"
+					action="#{widget.removeSimpleExpressionWidget}"
+					disabled="#{widget.minCriterionToShow}" 
+					update="criteriaGroup advancedQueryButtons" />
+	
+				<p:commandButton id="resetCriterion" value="#{msg['advancedQuery.resetCriterion']}"
+					action="#{widget.reset}" immediate="true" 
+					update="criteriaGroup advancedQueryButtons" />
+					
+				<p:commandButton id="search" value="#{msg['advancedQuery.search']}"
+					action="#{widget.search}" ajax="false" />
+			</h:panelGroup>
+			
+		</h:panelGroup>
+	</ui:component>
+	
+</ui:composition>

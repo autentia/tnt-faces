@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/autentia/!svn/ver/1043/trunk/autentia-wuija-parent/autentia-wuija-ui/src/main/java/com/autentia/wuija/widget/property
+END
+ManyToOneAutocompleteProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/autentia/!svn/ver/1020/trunk/autentia-wuija-parent/autentia-wuija-ui/src/main/java/com/autentia/wuija/widget/property/ManyToOneAutocompleteProperty.java
+END
+IntegerProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/autentia/!svn/ver/849/trunk/autentia-wuija-parent/autentia-wuija-ui/src/main/java/com/autentia/wuija/widget/property/IntegerProperty.java
+END
+Variant.java
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/autentia/!svn/ver/871/trunk/autentia-wuija-parent/autentia-wuija-ui/src/main/java/com/autentia/wuija/widget/property/Variant.java
+END
+EnumProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/autentia/!svn/ver/771/trunk/autentia-wuija-parent/autentia-wuija-ui/src/main/java/com/autentia/wuija/widget/property/EnumProperty.java
+END
+VariantProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/autentia/!svn/ver/849/trunk/autentia-wuija-parent/autentia-wuija-ui/src/main/java/com/autentia/wuija/widget/property/VariantProperty.java
+END
+PropertyFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/autentia/!svn/ver/971/trunk/autentia-wuija-parent/autentia-wuija-ui/src/main/java/com/autentia/wuija/widget/property/PropertyFactory.java
+END
+OneToManyProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/autentia/!svn/ver/847/trunk/autentia-wuija-parent/autentia-wuija-ui/src/main/java/com/autentia/wuija/widget/property/OneToManyProperty.java
+END
+ManyToOneProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/autentia/!svn/ver/965/trunk/autentia-wuija-parent/autentia-wuija-ui/src/main/java/com/autentia/wuija/widget/property/ManyToOneProperty.java
+END
+DoubleProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/autentia/!svn/ver/849/trunk/autentia-wuija-parent/autentia-wuija-ui/src/main/java/com/autentia/wuija/widget/property/DoubleProperty.java
+END
+DateProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/autentia/!svn/ver/953/trunk/autentia-wuija-parent/autentia-wuija-ui/src/main/java/com/autentia/wuija/widget/property/DateProperty.java
+END
+TextareaProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/autentia/!svn/ver/847/trunk/autentia-wuija-parent/autentia-wuija-ui/src/main/java/com/autentia/wuija/widget/property/TextareaProperty.java
+END
+Property.java
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/autentia/!svn/ver/1043/trunk/autentia-wuija-parent/autentia-wuija-ui/src/main/java/com/autentia/wuija/widget/property/Property.java
+END
+BooleanProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/autentia/!svn/ver/991/trunk/autentia-wuija-parent/autentia-wuija-ui/src/main/java/com/autentia/wuija/widget/property/BooleanProperty.java
+END
+BigDecimalProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/autentia/!svn/ver/943/trunk/autentia-wuija-parent/autentia-wuija-ui/src/main/java/com/autentia/wuija/widget/property/BigDecimalProperty.java
+END
+TextProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/autentia/!svn/ver/1043/trunk/autentia-wuija-parent/autentia-wuija-ui/src/main/java/com/autentia/wuija/widget/property/TextProperty.java
+END
+SecretProperty.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/autentia/!svn/ver/847/trunk/autentia-wuija-parent/autentia-wuija-ui/src/main/java/com/autentia/wuija/widget/property/SecretProperty.java
+END

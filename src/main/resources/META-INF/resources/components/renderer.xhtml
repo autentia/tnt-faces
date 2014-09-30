@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+         xmlns:h="http://java.sun.com/jsf/html"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:composite="http://java.sun.com/jsf/composite">
+ <h:head>
+
+   <title>This will not be present in rendered output</title>
+
+ </h:head>
+
+ <h:body>
+	
+   <composite:interface displayName="tnt widget component" >
+   	  <composite:attribute name="widget" type="com.autentia.tnt.faces.components.JsfWidget" required="true" />
+   	  <composite:attribute name="value"  />
+   </composite:interface>
+
+   <composite:implementation>
+		<ui:fragment test="#{cc.attrs.widget != null and cc.attrs.widget.visible}">
+			<ui:include src="#{cc.attrs.widget.rendererPath}">
+				<ui:insert />
+				<ui:param name="widget" value="#{cc.attrs.widget}" />
+				<ui:param name="value" value="#{cc.attrs.value}" />
+			</ui:include>
+		</ui:fragment>
+            
+	</composite:implementation>
+
+ </h:body>
+
+</html>

@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    Copyright 2012 Autentia Real Business Solutions S.L.
+    Copyright 2014 Autentia Real Business Solutions S.L.
     
     This file is part of the code that develops in Autentia.
     
@@ -20,10 +20,11 @@
 
 -->
 
-<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
-    
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://svn.java.net/svn/mojarra~svn/tags/2.1.13/jsf-api/doc/web-facesconfig_2_1.xsd"
+    version="2.1">
     <name>tntfaces</name>
-
+	
 </faces-config>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright 2008 Autentia Real Business Solutions S.L.
+    
+    This file is part of Autentia WUIJA.
+    
+    Autentia WUIJA is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Lesser General Public License as published by
+    the Free Software Foundation, version 3 of the License.
+    
+    Autentia WUIJA is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public License
+    along with Autentia WUIJA. If not, see <http://www.gnu.org/licenses/>.
+
+-->
+
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" 
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:tnt="http://java.sun.com/jsf/composite/components">
+
+	<h:panelGrid id="criteriaTable" columns="3" styleClass="advancedQueryWidgetCriteriaTable"
+		columnClasses="advancedQueryWidgetCriterionField,advancedQueryWidgetCriterionOperator,advancedQueryWidgetCriterionValue">
+		
+		<h:panelGroup id="propertiesGroup">
+			<h:selectOneMenu id="properties" value="#{widget.selectedProperty}" valueChangeListener="#{widget.propertyChangeListener}"
+				immediate="true" converter="omnifaces.SelectItemsConverter">
+				<f:selectItem itemLabel=" " noSelectionOption="true" />
+				<f:selectItems value="#{widget.properties}" var="property" itemLabel="${msg[property.labelId]}" itemValue="${property}" />
+				<f:ajax execute="@this" render="@this operatorGroup valuesGroup" />
+			</h:selectOneMenu>
+		</h:panelGroup>
+
+		<h:panelGroup id="operatorGroup">
+			<h:selectOneMenu id="operator" value="#{widget.selectedOperator}" valueChangeListener="#{widget.operatorChangeListener}"
+				immediate="true" rendered="#{widget.selectedProperty != null}" >
+				<f:selectItems value="#{widget.operators}" var="operator" itemLabel="${msg[operator]}" itemValue="${operator}" />
+				<f:ajax execute="@this" render="@this valuesGroup" />
+			</h:selectOneMenu>
+		</h:panelGroup>
+
+		<h:panelGroup id="valuesGroup">
+			
+			<ui:repeat var="propertyValue" value="#{widget.values}" varStatus="propertyVarStatus">
+				<tnt:renderer id="values#{propertyVarStatus.index}" widget="#{widget.selectedProperty}" value="#{propertyValue}" />
+			</ui:repeat>
+
+		</h:panelGroup>
+	</h:panelGrid>
+</ui:composition>

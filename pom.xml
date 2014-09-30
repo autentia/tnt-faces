@@ -27,13 +27,16 @@
 	</developers>
 
 	<properties>
-		<compileSource>1.6</compileSource>
+		<compileSource>1.7</compileSource>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<jsf.version>2.1.12</jsf.version>
-		<slf4j.version>1.6.6</slf4j.version>
+		<faces.version>2.2.8</faces.version>
+		<slf4j.version>1.4.3</slf4j.version>
 		<mockito.version>1.9.0</mockito.version>
 		<junit.version>4.10</junit.version>
+		<primefaces.version>5.0</primefaces.version>
+		<primefaces.extension.version>2.1.0</primefaces.extension.version>
+		<omnifaces.version>1.8.1</omnifaces.version>
 	</properties>
 
 	<build>
@@ -47,6 +50,7 @@
 					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
+			<!-- 
 			<plugin>
 				<groupId>com.google.code.maven-license-plugin</groupId>
 				<artifactId>maven-license-plugin</artifactId>
@@ -68,6 +72,7 @@
 	               </execution>
 	           </executions>
 			</plugin>
+			 -->
 		</plugins>
 	</build>
 
@@ -76,13 +81,39 @@
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
-			<version>${jsf.version}</version>
+			<version>${faces.version}</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>${slf4j.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.omnifaces</groupId>
+			<artifactId>omnifaces</artifactId>
+			<version>${omnifaces.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>${primefaces.version}</version>
+		</dependency>
+		
+        <dependency>
+            <groupId>org.primefaces.extensions</groupId>
+            <artifactId>primefaces-extensions</artifactId>
+            <version>${primefaces.extension.version}</version>
+        </dependency>
+        
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.7</version>
 		</dependency>
 
 		<dependency>
@@ -92,6 +123,12 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<dependency>
+		    <groupId>org.hibernate.javax.persistence</groupId>
+		    <artifactId>hibernate-jpa-2.0-api</artifactId>
+		    <version>1.0.1.Final</version>
+		</dependency>
+
 		<!-- test scope -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -99,6 +136,18 @@
 			<version>${slf4j.version}</version>
 		</dependency>
 			
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.3.2</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.9.2</version>
+		</dependency>
+
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>

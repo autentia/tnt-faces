@@ -26,13 +26,11 @@ import javax.faces.event.PhaseListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.autentia.tnt.faces.converters.SelectItemsConverter;
-
 public class LifeCycleLoggerListener implements PhaseListener {
 	
 	private static final long serialVersionUID = -2504278325379445246L;
 
-	private static final Logger LOG = LoggerFactory.getLogger(SelectItemsConverter.class);
+	private static final Logger LOG = LoggerFactory.getLogger(LifeCycleLoggerListener.class);
 	
     public PhaseId getPhaseId() {
         return PhaseId.ANY_PHASE;
