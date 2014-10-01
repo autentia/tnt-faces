@@ -26,6 +26,14 @@
 		</developer>
 	</developers>
 
+	<scm>
+		<connection>scm:git:git://github.com/autentia/tnt-faces.git</connection>
+		<developerConnection>scm:git:git@github.com:autentia/tnt-faces.git</developerConnection>
+		<url>https://github.com/autentia/tnt-faces</url>
+		<tag>HEAD</tag>
+	</scm>
+
+
 	<properties>
 		<compileSource>1.7</compileSource>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -171,4 +179,18 @@
 
 	</dependencies>
 
+	<distributionManagement>
+		<site>
+			<id>autentia-site</id>
+			<name>Autentia Site</name>
+			<url>${autentia.site.distribution}/com/autentia/tnt-faces/${project.version}</url>
+		</site>
+		<repository>
+			<id>autentia-repository</id>
+			<name>Autentia Repository</name>
+			<url>${autentia.mvn.distribution}</url>
+		</repository>
+
+	</distributionManagement>
+	
 </project>
