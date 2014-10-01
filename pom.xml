@@ -3,7 +3,7 @@
 
 	<groupId>com.autentia.tnt.faces</groupId>
 	<artifactId>autentia-tnt-faces</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2-SNAPSHOT</version>
 	
 	<name>autentia-tnt-faces</name>
 	<url>https://bitbucket.org/jmsanchezsuarez/autentia-tnt-faces/</url>
