@@ -24,24 +24,22 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:p="http://primefaces.org/ui">
 
-	<ui:component>
+	<h:selectOneMenu id="#{widget.firstPropertyName}#{idSuffix}" value="#{value[widget.firstPropertyName]}"
+		required="#{widget.required}"
+		valueChangeListener="#{widget.valueChangeListener}" disabled="#{widget.disabled}">
 
-		<h:selectOneMenu id="#{widget.firstPropertyName}#{idSuffix}" value="#{value[widget.firstPropertyName]}"
-			required="#{widget.required}"
-			valueChangeListener="#{widget.valueChangeListener}" disabled="#{widget.disabled}">
+		<f:attribute name="allowedValues" value="#{widget.allowedValues}" />
+		<f:converter converterId="omnifaces.SelectItemsConverter" />
+		<c:if test="#{widget.noItemSelected}">
+			<f:selectItem itemLabel=" " noSelectionOption="true"/>
+		</c:if>
+		<f:selectItems value="#{widget.allowedValues}" var="item" itemLabel="#{item[widget.itemLabel]}" itemValue="#{item}" />
+		<c:if test="#{widget.validatable}">
+			<f:validator validatorId="modelValidator" />
+		</c:if>
+		<f:ajax render="@this messageFor#{widget.firstPropertyName}" event="change" disabled="#{!widget.validatable and !widget.changeable}" />
+	</h:selectOneMenu>
 
-			<f:attribute name="allowedValues" value="#{widget.allowedValues}" />
-			<f:converter converterId="omnifaces.SelectItemsConverter" />
-			<c:if test="#{widget.noItemSelected}">
-				<f:selectItem itemLabel=" " noSelectionOption="true"/>
-			</c:if>
-			<f:selectItems value="#{widget.allowedValues}" var="item" itemLabel="#{item[widget.itemLabel]}" itemValue="#{item}" />
-			<c:if test="#{widget.validatable}">
-				<f:validator validatorId="modelValidator" />
-			</c:if>
-			<f:ajax render="@this messageFor#{widget.firstPropertyName}" event="change" disabled="#{!widget.validatable and !widget.changeable}" />
-		</h:selectOneMenu>
+	<h:message for="#{widget.firstPropertyName}#{idSuffix}" />
 
-		<h:message for="#{widget.firstPropertyName}#{idSuffix}" />
-	</ui:component>
 </ui:composition>

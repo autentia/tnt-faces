@@ -23,22 +23,19 @@
 	xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" 
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:p="http://primefaces.org/ui">
-	<ui:component>
 
-		<p:inputText id="#{widget.firstPropertyName}#{idSuffix}" value="#{value[widget.firstPropertyName]}"
-			required="#{widget.required}"
-			valueChangeListener="#{widget.valueChangeListener}" disabled="#{widget.disabled}">
+	<p:inputText id="#{widget.firstPropertyName}#{idSuffix}" value="#{value[widget.firstPropertyName]}"
+		required="#{widget.required}"
+		valueChangeListener="#{widget.valueChangeListener}" disabled="#{widget.disabled}">
 
-			<f:converter converterId="javax.faces.Long" />
-			
-			<c:if test="#{widget.validatable}">
-				<f:validator validatorId="modelValidator" />
-			</c:if>
-			
-		</p:inputText>
-
-		<h:message for="#{widget.firstPropertyName}#{idSuffix}" />
+		<f:converter converterId="javax.faces.Long" />
 		
-	</ui:component>
+		<c:if test="#{widget.validatable}">
+			<f:validator validatorId="modelValidator" />
+		</c:if>
+		
+	</p:inputText>
+
+	<h:message for="#{widget.firstPropertyName}#{idSuffix}" />
 	
 </ui:composition>

@@ -45,11 +45,10 @@
 		</h:panelGroup>
 
 		<h:panelGroup id="valuesGroup">
-			
-			<ui:repeat var="propertyValue" value="#{widget.values}" varStatus="propertyVarStatus">
+			<c:forEach var="propertyValue" items="#{widget.values}" varStatus="propertyVarStatus">
 				<tnt:renderer id="values#{propertyVarStatus.index}" widget="#{widget.selectedProperty}" value="#{propertyValue}" />
-			</ui:repeat>
-
+			</c:forEach>
 		</h:panelGroup>
+		
 	</h:panelGrid>
 </ui:composition>

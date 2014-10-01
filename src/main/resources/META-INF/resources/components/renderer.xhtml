@@ -20,11 +20,12 @@
 
    <composite:implementation>
 		<ui:fragment test="#{cc.attrs.widget != null and cc.attrs.widget.visible}">
+		
 			<ui:include src="#{cc.attrs.widget.rendererPath}">
-				<ui:insert />
 				<ui:param name="widget" value="#{cc.attrs.widget}" />
 				<ui:param name="value" value="#{cc.attrs.value}" />
 			</ui:include>
+			
 		</ui:fragment>
             
 	</composite:implementation>

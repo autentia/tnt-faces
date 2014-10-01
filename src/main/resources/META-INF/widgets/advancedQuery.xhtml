@@ -25,44 +25,47 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:tnt="http://java.sun.com/jsf/composite/components">
 
-	<ui:component>
-		<h:panelGroup id="advancedQuery">
-			<h:panelGrid columns="2" id="matchModeGroup" styleClass="advancedQueryWidgetMatchMode">
-				<h:panelGroup styleClass="advancedQueryWidgetMatchModeLabel">
-					<h:outputLabel for="matchMode" value="#{msg['advancedQuery.MATCH']}" />
-				</h:panelGroup>
-				<h:selectOneRadio id="matchMode" value="#{widget.selectedMatchMode}">
-					<f:selectItems value="#{widget.matchModes}" var="matchMode" itemLabel="${msg['advancedQuery.'.concat(matchMode)]}" itemValue="${matchMode}" />
-				</h:selectOneRadio>
-			</h:panelGrid>
-	
-			<h:panelGroup id="criteriaGroup" styleClass="advancedQueryWidgetCriteria">
-				<c:forEach var="simpleExpressionWidget" items="#{widget.simpleExpressionWidgets}" varStatus="varStatus">
-					<tnt:renderer id="expressions#{varStatus.index}" widget="#{simpleExpressionWidget}">
-						<ui:param name="criterionIdSuffix" value="#{varStatus.index}" />
-					</tnt:renderer>
-				</c:forEach>
+	<h:panelGroup id="advancedQuery">
+		<h:panelGrid columns="2" id="matchModeGroup" styleClass="advancedQueryWidgetMatchMode">
+			<h:panelGroup styleClass="advancedQueryWidgetMatchModeLabel">
+				<h:outputLabel for="matchMode" value="#{msg['advancedQuery.MATCH']}" />
 			</h:panelGroup>
-	
-			<h:panelGroup id="advancedQueryButtons" styleClass="widgetButtons">
-				<p:commandButton id="moreCriterion" value="#{msg['advancedQuery.moreCriterion']}"
-					action="#{widget.addSimpleExpressionWidget}" 
-					update="criteriaGroup advancedQueryButtons" />
-					
-				<p:commandButton id="lessCriterion" value="#{msg['advancedQuery.lessCriterion']}"
-					action="#{widget.removeSimpleExpressionWidget}"
-					disabled="#{widget.minCriterionToShow}" 
-					update="criteriaGroup advancedQueryButtons" />
-	
-				<p:commandButton id="resetCriterion" value="#{msg['advancedQuery.resetCriterion']}"
-					action="#{widget.reset}" immediate="true" 
-					update="criteriaGroup advancedQueryButtons" />
-					
-				<p:commandButton id="search" value="#{msg['advancedQuery.search']}"
-					action="#{widget.search}" ajax="false" />
-			</h:panelGroup>
-			
+			<h:selectOneRadio id="matchMode" value="#{widget.selectedMatchMode}">
+				<f:selectItems value="#{widget.matchModes}" var="matchMode" itemLabel="${msg['advancedQuery.'.concat(matchMode)]}" itemValue="${matchMode}" />
+			</h:selectOneRadio>
+		</h:panelGrid>
+
+		<h:panelGroup id="criteriaGroup" styleClass="advancedQueryWidgetCriteria">
+ 
+			<c:forEach var="simpleExpressionWidget" items="#{widget.simpleExpressionWidgets}" varStatus="varStatus">
+
+
+				<tnt:renderer id="expressions#{varStatus.index}" widget="#{simpleExpressionWidget}">
+					<ui:param name="criterionIdSuffix" value="#{varStatus.index}" />
+				</tnt:renderer>
+
+			</c:forEach>
+
 		</h:panelGroup>
-	</ui:component>
 	
+		<h:panelGroup id="advancedQueryButtons" styleClass="widgetButtons">
+			<p:commandButton id="moreCriterion" value="#{msg['advancedQuery.moreCriterion']}"
+				action="#{widget.addSimpleExpressionWidget}" 
+				update="criteriaGroup advancedQueryButtons" />
+				
+			<p:commandButton id="lessCriterion" value="#{msg['advancedQuery.lessCriterion']}"
+				action="#{widget.removeSimpleExpressionWidget}"
+				disabled="#{widget.minCriterionToShow}" 
+				update="criteriaGroup advancedQueryButtons" />
+
+			<p:commandButton id="resetCriterion" value="#{msg['advancedQuery.resetCriterion']}"
+				action="#{widget.reset}" immediate="true" 
+				update="criteriaGroup advancedQueryButtons" />
+				
+			<p:commandButton id="search" value="#{msg['advancedQuery.search']}"
+				action="#{widget.search}" ajax="false" />
+		</h:panelGroup>
+
+	</h:panelGroup>
+ 
 </ui:composition>

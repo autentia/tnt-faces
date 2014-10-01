@@ -24,7 +24,6 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:p="http://primefaces.org/ui">
 
-	<ui:component>
 		<h:selectOneMenu id="#{widget.firstPropertyName}#{idSuffix}" value="#{value[widget.firstPropertyName]}"
 			required="#{widget.required}"
 			valueChangeListener="#{widget.valueChangeListener}" disabled="#{widget.disabled}">
@@ -42,5 +41,5 @@
 		</h:selectOneMenu>
 
 		<h:message for="#{widget.firstPropertyName}#{idSuffix}" />
-	</ui:component>
+
 </ui:composition>
