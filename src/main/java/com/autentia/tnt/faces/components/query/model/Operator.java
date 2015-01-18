@@ -161,6 +161,22 @@ public enum Operator {
 				List<Object> paramValues) {
 			not(BETWEEN, propertyName, operands, alias, restrictionsHql, paramValues);
 		}
+	},
+	IS_EMPTY {
+
+		@Override
+		public void toHql(String propertyName, List<Object> operands, String alias, StringBuilder restrictionsHql,
+				List<Object> paramValues) {
+			restrictionsHql.append("(").append(alias).append(".").append(propertyName).append(" is empty )");
+		}
+	},
+	IS_NOT_EMPTY {
+
+		@Override
+		public void toHql(String propertyName, List<Object> operands, String alias, StringBuilder restrictionsHql,
+				List<Object> paramValues) {
+			restrictionsHql.append("(").append(alias).append(".").append(propertyName).append(" is not empty )");
+		}
 	};
 
 	public abstract void toHql(String propertyName, List<Object> operands, String alias, StringBuilder restrictionsHql,

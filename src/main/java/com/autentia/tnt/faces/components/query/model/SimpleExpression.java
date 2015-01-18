@@ -109,6 +109,8 @@ public class SimpleExpression implements Criterion {
 		switch (operator) {
 		case IS_NULL:
 		case IS_NOT_NULL:
+		case IS_EMPTY:
+		case IS_NOT_EMPTY:
 		case IS_BLANK:
 		case IS_NOT_BLANK:
 			values.clear();

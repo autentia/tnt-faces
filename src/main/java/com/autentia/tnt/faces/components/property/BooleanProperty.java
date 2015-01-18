@@ -19,6 +19,7 @@
 package com.autentia.tnt.faces.components.property;
 
 import com.autentia.tnt.faces.components.query.model.Operator;
+import com.autentia.tnt.faces.converters.I18NConverter;
 
 public class BooleanProperty extends Property {
 
@@ -29,7 +30,12 @@ public class BooleanProperty extends Property {
 
 	public BooleanProperty(Class<?> entityClass, String propertyFullPath, boolean editable) {
 		super(entityClass, propertyFullPath, editable, DEFAULT_BOOLEAN_OPERATORS, DEFAULT_BOOLEAN_OPERATOR);
-		// XXX setConverter(new I18NConverter());
+		setConverter(new I18NConverter());
+	}
+	
+	public BooleanProperty(Class<?> entityClass, String propertyFullPath, boolean editable, Operator[] operators) {
+		super(entityClass, propertyFullPath, editable, operators, Operator.IS_NOT_NULL);
+		setConverter(new I18NConverter());
 	}
 
 	@Override
