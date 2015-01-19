@@ -28,8 +28,13 @@ public class BooleanProperty extends Property {
 
 	static final Operator DEFAULT_BOOLEAN_OPERATOR = Operator.EQUALS;
 	
+	public BooleanProperty(Class<?> entityClass, String propertyFullPath, boolean editable) {
+		super(entityClass, propertyFullPath, editable, DEFAULT_BOOLEAN_OPERATORS, DEFAULT_BOOLEAN_OPERATOR);
+		setConverter(new I18NConverter());
+	}
+	
 	public BooleanProperty(Class<?> entityClass, String propertyFullPath, boolean editable, Operator[] operators) {
-		super(entityClass, propertyFullPath, editable, operators, Operator.IS_NOT_NULL);
+		super(entityClass, propertyFullPath, editable, operators, DEFAULT_BOOLEAN_OPERATOR);
 		setConverter(new I18NConverter());
 	}
 
