@@ -31,11 +31,14 @@ public class BooleanProperty extends Property {
 	public BooleanProperty(Class<?> entityClass, String propertyFullPath, boolean editable) {
 		super(entityClass, propertyFullPath, editable, DEFAULT_BOOLEAN_OPERATORS, DEFAULT_BOOLEAN_OPERATOR);
 		setConverter(new I18NConverter());
+<<<<<<< HEAD
 	}
 	
 	public BooleanProperty(Class<?> entityClass, String propertyFullPath, boolean editable, Operator[] operators) {
 		super(entityClass, propertyFullPath, editable, operators, Operator.IS_NOT_NULL);
 		setConverter(new I18NConverter());
+=======
+>>>>>>> e18e7a8dc18dcf71d3642ba7b605fb5014284ed5
 	}
 
 	@Override
