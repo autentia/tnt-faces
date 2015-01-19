@@ -37,6 +37,11 @@ public class BooleanProperty extends Property {
 		super(entityClass, propertyFullPath, editable, operators, DEFAULT_BOOLEAN_OPERATOR);
 		setConverter(new I18NConverter());
 	}
+	
+	public BooleanProperty(Class<?> entityClass, String propertyFullPath, boolean editable, Operator[] operators, Operator defaultOperator) {
+		super(entityClass, propertyFullPath, editable, operators, defaultOperator);
+		setConverter(new I18NConverter());
+	}
 
 	@Override
 	protected String getInputTemplate() {
