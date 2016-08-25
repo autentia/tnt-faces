@@ -183,7 +183,7 @@
 		<site>
 			<id>autentia-site</id>
 			<name>Autentia Site</name>
-			<url>${autentia.site.distribution}/com/autentia/tnt-faces/${project.version}</url>
+			<url>${autentia.site.distribution}</url>
 		</site>
 		<repository>
 			<id>autentia-repository</id>
