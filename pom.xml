@@ -3,7 +3,7 @@
 
 	<groupId>com.autentia.tnt.faces</groupId>
 	<artifactId>autentia-tnt-faces</artifactId>
-	<version>0.0.9-SNAPSHOT</version>
+	<version>0.0.8-SNAPSHOT</version>
 	
 	<name>autentia-tnt-faces</name>
 	<url>https://bitbucket.org/jmsanchezsuarez/autentia-tnt-faces/</url>
@@ -178,4 +178,19 @@
 		</dependency>
 
 	</dependencies>
+
+	<distributionManagement>
+		<site>
+			<id>autentia-site</id>
+			<name>Autentia Site</name>
+			<url>${autentia.site.distribution}/com/autentia/tnt-faces/${project.version}</url>
+		</site>
+		<repository>
+			<id>autentia-repository</id>
+			<name>Autentia Repository</name>
+			<url>${autentia.mvn.distribution}</url>
+		</repository>
+
+	</distributionManagement>
+	
 </project>
