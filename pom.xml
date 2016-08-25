@@ -3,7 +3,7 @@
 
 	<groupId>com.autentia.tnt.faces</groupId>
 	<artifactId>autentia-tnt-faces</artifactId>
-	<version>0.0.8-SNAPSHOT</version>
+	<version>0.0.9</version>
 	
 	<name>autentia-tnt-faces</name>
 	<url>https://bitbucket.org/jmsanchezsuarez/autentia-tnt-faces/</url>
@@ -29,7 +29,7 @@
 		<connection>scm:git:git://github.com/autentia/tnt-faces.git</connection>
 		<developerConnection>scm:git:git@github.com:autentia/tnt-faces.git</developerConnection>
 		<url>https://github.com/autentia/tnt-faces</url>
-	  <tag>HEAD</tag>
+	  <tag>autentia-tnt-faces-0.0.9</tag>
   </scm>
 
 
