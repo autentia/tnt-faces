@@ -180,11 +180,11 @@
 	</dependencies>
 
 	<distributionManagement>
-		<site>
+		<!-- <site>
 			<id>autentia-site</id>
 			<name>Autentia Site</name>
 			<url>${autentia.site.distribution}/com/autentia/tnt-faces/${project.version}</url>
-		</site>
+		</site> -->
 		<repository>
 			<id>autentia-repository</id>
 			<name>Autentia Repository</name>
