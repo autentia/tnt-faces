@@ -41,7 +41,7 @@
 		<slf4j.version>1.4.3</slf4j.version>
 		<mockito.version>1.9.0</mockito.version>
 		<junit.version>4.10</junit.version>
-		<primefaces.version>5.0</primefaces.version>
+		<primefaces.version>8.0</primefaces.version>
 		<primefaces.extension.version>2.1.0</primefaces.extension.version>
 		<omnifaces.version>1.8.1</omnifaces.version>
 	</properties>
